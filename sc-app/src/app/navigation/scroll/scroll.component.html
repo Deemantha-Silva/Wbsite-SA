@@ -1,0 +1,5 @@
+<div id="scroll">
+  <div *ngFor="let n of numWords; let i=index">
+      <div *ngIf="i < numDivs" id='{{numWords[i]}}' class="scroll_item">&nbsp;</div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<mat-sidenav-container class="mSideNav">
+    <mat-sidenav mode="side"  #sidenav [(opened)]="opened" style="position: fixed; margin-top: 64px; width: 81px; overflow: hidden; background-color: #353839;">
+      <div class='sidenavRedirectButtonGroup'>
+
+        <!-- <div class='sidenavButtonWrapper'>
+          <div class="slideout">
+            <input class='sidenavButton' type="image" src="../../assets/images/user.png">
+            <div class="slideoutInner">ACCOUNT</div>
+          </div>
+        </div> -->
+
+        <!-- <div class='sidenavButtonWrapper'>
+          <div class="slideout">
+            <input class='sidenavButton sidenavButtonTopMargin' type="image" src="../../assets/images/travel.png">
+            <div class="slideoutInner">TRAVELS</div>
+          </div>
+        </div> -->
+
+        <!-- <div class='sidenavButtonWrapper'>
+          <div class="slideout">
+            <input class='sidenavButton sidenavButtonTopMargin' type="image" src="../../assets/images/scholarship.png">
+            <a [routerLink]="[]" fragment="third1"></a>
+            <div class="slideoutInner">ACADEMIA</div>
+          </div>
+        </div> -->
+
+        <div class='sidenavButtonWrapper'>
+          <div class="slideout">
+            <input [routerLink]="['home']" class='sidenavButton sidenavButtonTopMargin' type="image" src="../../../assets/images/house.png">
+            <div class="slideoutInner">HOME</div>
+          </div>
+        </div>
+
+        <div class='sidenavButtonWrapper'>
+          <div class="slideout">
+            <input [routerLink]="['sociology']" class='sidenavButton sidenavButtonTopMargin' type="image" src="../../../assets/images/conference.png">
+            <div class="slideoutInner">SOCIOLOGY</div>
+          </div>
+        </div>
+
+        <!-- <div class='sidenavButtonWrapper'>
+          <div class="slideout">
+            <input class='sidenavButton sidenavButtonTopMargin' type="image" src="../../../assets/images/pagoda.png">
+            <div class="slideoutInner">RELIGION</div>
+          </div>
+        </div>
+
+        <div class='sidenavButtonWrapper'>
+          <div class="slideout">
+            <input class='sidenavButton sidenavButtonTopMargin' type="image" src="../../../assets/images/discussion.png">
+            <div class="slideoutInner">LECTURES</div>
+          </div>
+        </div> -->
+
+        <div class='sidenavButtonWrapper'>
+          <div class="slideout">
+            <input [routerLink]="['srilanka']" class='sidenavButton sidenavButtonTopMargin' type="image" src="../../../assets/images/sri-lanka.png">
+            <div class="slideoutInner">SRI LANKA</div>
+          </div>
+        </div>
+
+        <div class='sidenavButtonWrapper'>
+          <div class="slideout">
+            <input (click)='goToFacebook()' class ='sidenavButton sidenavButtonTopMargin' type="image" src="../../../assets/images/facebook.png">
+            <div class="slideoutInner">FACEBOOK</div>
+          </div>
+        </div>
+
+        <!-- <div class='sidenavButtonWrapper'>
+          <div class="slideout">
+            <input class='sidenavButton sidenavButtonTopMargin' type="image" src="../../../assets/images/twitter.png">
+            <div class="slideoutInner">TWITTER</div>
+          </div>
+      </div> -->
+
+        <div class='sidenavButtonWrapper'>
+          <div class="slideout">
+            <input [routerLink]="['contactus']" class='sidenavButton sidenavButtonTopMargin' type="image" src="../../../assets/images/email.png">
+            <div class="slideoutInner">CONTACT US</div>
+          </div>
+        </div>
+
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content (click)="closeSideNav();">
+        <button mat-button (click)="sidenav.toggle(); imgSwitch();" style="position: fixed; z-index: 1;"><img src="{{imageSource}}"></button>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>

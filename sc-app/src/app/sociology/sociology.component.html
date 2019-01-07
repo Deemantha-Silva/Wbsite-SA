@@ -1,0 +1,97 @@
+<app-header [title]='title'></app-header>
+<div class='landing'>
+    <div id="socList" class="jumbotron socDiv" >
+      <h4 class="title">Articles</h4>
+      <div id="socArticles" style="max-height: 70vh;">
+        <div *ngIf="articles.length > 0">
+          <table style="width: 95%;">
+            <tr *ngFor="let article of articles | paginate: { itemsPerPage: 3, currentPage: p }">
+              <td>
+                  <mat-card style="display: flex; height: 200px;" class="slCard" *ngIf="article.type == 3">
+                      <mat-card-header style="width:35%;">
+                        <div mat-card-avatar *ngIf="(article.date |  date: 'yyyy-MM-dd') < (curDate | date: 'yyyy-MM-dd') && (article.date |  date: 'yyyy-MM-dd') > (lastDate | date: 'yyyy-MM-dd')" class="cardTypeA"></div>
+                        <div mat-card-avatar *ngIf="(article.date |  date: 'yyyy-MM-dd') <= (lastDate | date: 'yyyy-MM-dd')" class="cardTypeB"></div>
+                        <span>
+                            <mat-card-title>{{ article.title }}</mat-card-title>
+                            <mat-card-subtitle>{{ article.subtitle }}</mat-card-subtitle>
+                            <mat-card-subtitle>{{ article.date | date: 'yyyy-MM-dd' }}</mat-card-subtitle>
+                          </span>
+                      </mat-card-header>
+                      <mat-card-content style="width: 50%;">
+                        <p>
+                          {{ article.summary }}
+                        </p>
+                      </mat-card-content>
+                      <mat-card-actions>
+                        <button (click)="displayArticle(article.id)" class="btn btn-primary socArticlesBtn">Read More</button>
+                      </mat-card-actions>
+                    </mat-card>
+              </td>
+            </tr>
+          </table>
+          <div id="paginationContainer">
+            <div id='paginationDiv'>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </div>
+      </div>
+        <p class="info-text mat-body-1" *ngIf="articles.length ==0">
+          No Articles At This Moment
+        </p>
+      </div>
+    </div>
+    <div id="bookList" class="jumbotron socDiv" >
+      <h4 class="title2">Recommended Books</h4>
+      <div id="socBooks" style="max-height:25vh;">
+        <div *ngIf="books.length > 0">
+        <div *ngFor="let book of books">
+          <mat-card style="display: flex; width: 98%; height:100px;" class="slCard" *ngIf="book.type == 3">
+            <mat-card-header style="min-width: 15%;">
+              <div mat-card-avatar class="cardTypeC"></div>
+              <mat-card-title>{{ book.title }}</mat-card-title>
+
+                <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+                <mat-card-subtitle>{{ book.year }}</mat-card-subtitle>
+
+              </mat-card-header>
+            <mat-card-content style="padding-right: 10px; margin: auto;">
+              <p>
+                {{ book.details }}
+              </p>
+            </mat-card-content>
+          </mat-card>
+          <br>
+        </div>
+      </div>
+        <p class="info-text mat-body-1" *ngIf="books.length ==0">
+          No Books At This Moment
+        </p>
+      </div>
+    </div>
+    <div id="linkList" class="jumbotron socDiv" >
+      <h4 class="title2">Interesting Links</h4>
+      <div id="socLinks" style="max-height: 25vh;">
+        <div *ngIf="links.length > 0">
+        <div *ngFor="let link of links">
+          <mat-card class="slCard" style="width: 98%; height: 100px;" *ngIf="link.type == 3">
+            <mat-card-header style="min-width: 15%;">
+              <div mat-card-avatar class="cardTypeD"></div>
+              <mat-card-title>{{ link.title }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content style="padding-right: 10px;">
+              <p>
+                {{ link.link }}
+                <br>
+                {{ link.description }}
+              </p>
+            </mat-card-content>
+          </mat-card>
+          <br>
+        </div>
+      </div>
+        <p class="info-text mat-body-1" *ngIf="links.length ==0">
+          No Links At This Moment
+        </p>
+      </div>
+    </div>
+</div>

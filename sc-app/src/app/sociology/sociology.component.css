@@ -1,0 +1,149 @@
+#bookList ::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+
+#bookList ::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#bookList ::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+#linkList ::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+
+#linkList ::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+#linkList ::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+.landing{
+  height: 100vh;
+  width: 100vw;
+  background-color: #282828;
+  position: fixed;
+}
+
+.cardTypeA{
+  background-image: url("../../assets/images/new.png");
+  background-size: cover;
+  height:40px;
+  width: 40px;
+}
+
+.cardTypeB{
+  background-image: url("../../assets/images/thesis.png");
+  background-size: cover;
+  height:40px;
+  width: 40px;
+}
+
+.cardTypeC{
+  background-image: url("../../assets/images/library.png");
+  background-size: cover;
+  height:40px;
+  width: 40px;
+}
+
+.cardTypeD{
+  background-image: url("../../assets/images/link.png");
+  background-size: cover;
+  height:40px;
+  width: 40px;
+}
+
+#paginationContainer{
+  width: 95%;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+#paginationDiv {
+  width:300px !important;
+  float:right !important;
+  height: 30px;
+}
+
+ #socList{
+  position: relative;
+  top: 5%;
+  width: 45vw;
+   height: 85vh !important;
+   margin-left: 5vw;
+   /* margin: auto; */
+ }
+
+ #socArticles{
+   overflow: hidden;
+ }
+
+ #socBooks{
+   overflow: auto;
+ }
+
+
+ #socLinks{
+  overflow: auto;
+}
+
+ #bookList{
+  position: absolute;
+    top: 5%;
+    width: 38vw;
+    height: 40vh !important;
+    margin-left: 55vw;
+ }
+
+ #linkList{
+  position: absolute;
+  top: 50%;
+  width: 38vw;
+  height: 40vh !important;
+  margin-left: 55vw;
+ }
+
+.socDiv{
+  background-color: rgb(53, 56, 57);
+  box-shadow: 0 1rem 3rem black !important;
+  transition: top ease 0.05s;
+  color: white;
+}
+
+.title{
+  position: relative;
+  bottom: 7.5%;
+}
+
+.title2{
+  position: relative;
+  bottom: 15%;
+}
+
+.socArticlesBtn{
+  margin-left: 10px;
+}

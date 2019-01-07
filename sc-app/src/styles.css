@@ -1,0 +1,18 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import "~font-awesome/css/font-awesome.css";
+html, body{
+  margin: 0;
+  padding: 0;
+  overflow: scroll;
+  overflow-x: hidden;
+  /* overflow-y: hidden; */
+}
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
+}
+
+/* p{
+  margin-bottom: 0px !important;
+} */

@@ -1,0 +1,75 @@
+<app-header [title]='title'></app-header>
+<div class='landing'>
+    <div id="slList" class="jumbotron slDiv" >
+      <h4 class="title">Articles</h4>
+      <div id="slArticles" style="max-height: 70vh;">
+        <div *ngIf="articles.length > 0">
+          <table style="width: 95%;">
+            <tr *ngFor="let article of articles | paginate: { itemsPerPage: 3, currentPage: p }">
+              <td>
+                  <mat-card style="display: flex; height: 200px;" class="slCard" *ngIf="article.type == 2">
+                      <mat-card-header style="width:35%;">
+                        <div mat-card-avatar *ngIf="(article.date |  date: 'yyyy-MM-dd') < (curDate | date: 'yyyy-MM-dd') && (article.date |  date: 'yyyy-MM-dd') > (lastDate | date: 'yyyy-MM-dd')" class="cardTypeA"></div>
+                        <div mat-card-avatar *ngIf="(article.date |  date: 'yyyy-MM-dd') <= (lastDate | date: 'yyyy-MM-dd')" class="cardTypeB"></div>
+                        <span>
+                            <mat-card-title>{{ article.title }}</mat-card-title>
+                            <mat-card-subtitle>{{ article.subtitle }}</mat-card-subtitle>
+                            <mat-card-subtitle>{{ article.date | date: 'yyyy-MM-dd' }}</mat-card-subtitle>
+                          </span>
+                      </mat-card-header>
+                      <mat-card-content style="width: 50%;">
+                        <p>
+                          {{ article.summary }}
+                        </p>
+                      </mat-card-content>
+                      <mat-card-actions>
+                        <button (click)="displayArticle(article.id)" class="btn btn-primary socArticlesBtn">Read More</button>
+                      </mat-card-actions>
+                    </mat-card>
+              </td>
+            </tr>
+          </table>
+          <div id="paginationContainer" *ngIf="articles.length > 0">
+            <div id='paginationDiv'>
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </div>
+      </div>
+        <p class="info-text mat-body-1" *ngIf="articles.length ==0">
+          No Articles At This Moment
+        </p>
+      </div>
+    </div>
+    <div id="videoList" class="jumbotron slDiv" >
+      <h4 class="title2">Videos</h4>
+      <div id="slVideos">
+        <div *ngIf="videos.length > 0">
+        <div *ngFor="let video of videos | paginate: { itemsPerPage: 1, currentPage: x }">
+          <div style="width: 98%;" *ngIf="video.type == 2">
+                <div style="margin: auto; height: 435px; width: 100%; margin-top: 30px;">
+              <youtube-player
+              [videoId]="video.link"
+              [height]="400"
+              [width]="665"
+              (ready)="savePlayer($event)"
+              (change)="onStateChange($event)"
+            >
+            </youtube-player>
+            </div>
+          </div>
+            <h6>{{ video.title }}</h6>
+            <h6>{{ video.date | date: 'yyyy-MM-dd' }}</h6>
+        </div>
+      </div>
+        <p class="info-text mat-body-1" *ngIf="videos.length ==0">
+          No Videos At This Moment
+        </p>
+      </div>
+      <div id="paginationContainer2" *ngIf="videos.length > 0">
+        <div id='paginationDiv2'>
+          <pagination-controls (pageChange)="v = $event"></pagination-controls>
+        </div>
+      </div>
+    </div>
+
+</div>

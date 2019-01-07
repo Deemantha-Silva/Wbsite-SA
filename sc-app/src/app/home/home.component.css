@@ -1,0 +1,191 @@
+.parallax1 {
+  background-image: url("../../assets/images/myStory.jpg");
+
+  height: 100vh;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax2 {
+  background-color:#d6d6d6;
+  height: 100vh;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.parallax3 {
+  background-image: url("../../assets/images/srilanka2.jpg");
+  height: 100vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#title{
+ position: relative;
+ top: 150px;
+  height: 300px !important;
+  margin-left: 4em !important;
+  margin-right: 4em !important;
+}
+
+#title2{
+  font-size: 2.5em;
+
+ }
+
+
+
+.titlebox{
+  height: 100px;
+  vertical-align: middle;
+  text-align: center;
+  background-color: #282828 !important;
+  font-size: 18px;
+  color: white;
+}
+
+.landing{
+  height: 100vh;
+  background-color: #282828;
+  background-image: url("../../assets/images/logo2.png"), url('../../assets/images/welcome.png') ;
+  background-attachment: fixed, fixed;
+  background-position: 50% 40%, 50% 60%;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* ------------------------------- Second Page Start ---------------------------------------- */
+#para2Div{
+  margin-left: 45vw !important;
+  position: relative;
+  top: 10vh;
+  height: 85vh !important;
+  margin-right: 4em !important;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+}
+#aboutMeImg{
+  height: 100vh;
+  position: relative;
+  float: left;
+  /* height: 400px;
+  width: 400px; */
+}
+
+#para2P{
+  max-height: 60vh;
+  background-color: white;
+  display: flex;
+  padding: 20px;
+  box-shadow: 4px 4px 4px grey;
+}
+
+/* ------------------------------- Second Page End ---------------------------------------- */
+/* ------------------------------- Third Page Start ---------------------------------------- */
+#third1{
+  text-align: center;
+}
+
+#acaRowHeader{
+  position: relative;
+  width: 100vw;
+  top: 10vh;
+  color: white;
+}
+
+#acaRowBody{
+  width: 100vw;
+}
+
+.title3{
+  position: relative;
+  top: 25%;
+  width: 20vw;
+   height: 40vh !important;
+   margin-left: 4em !important;
+   margin-right: 4em !important;
+   box-shadow: 0 1rem 3rem black !important;
+   transition: top ease 0.05s;
+
+ }
+
+.title3:hover{
+   top: -30px;
+   background-color: #3f51b5;
+   /* opacity: 0.9; */
+ }
+
+.displayContainer{
+  position: relative;
+  top: 20vh;
+  display: inline-flex;
+  margin: auto;
+}
+/* ------------------------------- Third Page End ---------------------------------------- */
+/* ------------------------------- Fourth Page Start ---------------------------------------- */
+#allArticlesButton{
+  float: right;
+  font-size: 1.5rem;
+  background-color: #007bff;
+  color: white;
+}
+
+#title4{
+  position: relative;
+  top: 150px;
+   min-height: 200px !important;
+   max-height: 80vh !important;
+   margin-left: 4em !important;
+   margin-right: 4em !important;
+ }
+
+ .slCard{
+   margin-top: 10px;
+   max-height: 200px;
+   display: inline-flex;
+   width: 100%;
+ }
+
+.slCard:hover{
+  background-color: #3f51b5;
+  /* opacity: 0.9; */
+}
+
+ .cardTypeA{
+   background-image: url('../../assets/images/article.png');
+   background-size: cover;
+ }
+
+ .cardTypeB{
+  background-image: url('../../assets/images/article-2.png');
+  background-size: cover;
+}
+
+ .cardButton{
+  /* position: relative;
+  left: 40%; */
+  position: absolute;
+  left: 90%;
+  color: white;
+  background-color: #007bff;
+ }
+
+ .mat-list-item{
+   padding: 10px;
+ }
+
+ .mat-card-content{
+  padding-right: 10px;
+  overflow-wrap: break-word;
+  overflow-x: overlay;
+  max-width: 70%;
+  padding-left: 10px;
+  overflow-y: hidden;
+ }
+ /* ------------------------------- Fourth Page End ---------------------------------------- */

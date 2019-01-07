@@ -1,0 +1,62 @@
+.mSideNav{
+  margin-top: 64px;
+  height: 100%;
+  overflow-y: hidden !important;
+}
+
+.sidenavButton{
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  vertical-align: -webkit-baseline-middle;
+}
+
+.sidenavButtonWrapper{
+  margin-bottom: 20px;
+}
+
+.sidenavRedirectButtonGroup{
+  margin-top: 150px;
+}
+
+.slideout{
+  background-color: #353839;
+  text-align: center;
+}
+.slideoutInner{
+  color: white;
+  vertical-align: middle;
+  display: inline-block;
+  background-color: #3498db;
+  z-index: -3;
+  position: fixed;
+  margin-bottom: 20px;
+  width: 120px;
+  height: 48px;
+  left: -250px;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.slideout:hover {
+  background-color: #3498db;
+}
+.slideout:hover .slideoutInner {
+  left: 80px;
+}
+
+.sideNavBoxElement{
+  height:48px;
+  width:16px;
+  margin-left: 0px;
+  background-color: orange;
+}
+
+mat-sidenav{
+  box-shadow: 2px 0 15px -2px black;
+}
+
+.mat-drawer-content{
+  overflow: hidden !important;
+}

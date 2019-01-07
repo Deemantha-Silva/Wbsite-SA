@@ -1,0 +1,108 @@
+.landing{
+  height: 100vh;
+  width: 100vw;
+  background-color: #282828;
+  position: fixed;
+}
+
+.cardTypeA{
+  background-image: url("../../assets/images/new.png");
+  background-size: cover;
+  height:40px;
+  width: 40px;
+}
+
+.cardTypeB{
+  background-image: url("../../assets/images/thesis.png");
+  background-size: cover;
+  height:40px;
+  width: 40px;
+}
+
+.cardTypeC{
+  background-image: url("../../assets/images/library.png");
+  background-size: cover;
+  height:40px;
+  width: 40px;
+}
+
+.cardTypeD{
+  background-image: url("../../assets/images/link.png");
+  background-size: cover;
+  height:40px;
+  width: 40px;
+}
+
+#paginationContainer{
+  width: 95%;
+  height: 30px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+#paginationDiv {
+  width:250px !important;
+  float:right !important;
+  height: 30px;
+}
+
+#paginationContainer2{
+  width: 95%;
+  height: 30px;
+  /* background-color: #fff; */
+  border-radius: 4px;
+  margin: auto;
+  margin-top: 20%;
+}
+
+#paginationDiv2 {
+  width:250px !important;
+  float:right !important;
+  height: 30px;
+}
+
+
+ #slList{
+  position: relative;
+  top: 5%;
+  width: 45vw;
+   height: 85vh !important;
+   margin-left: 5vw;
+   /* margin: auto; */
+ }
+
+ #slArticles{
+   overflow: hidden;
+ }
+
+ #slVideos{
+  max-height: 85vh;
+  position: relative;
+  bottom: 25px;
+ }
+
+ #videoList{
+  position: absolute;
+    top: 5%;
+    width: 38vw;
+    height: 85vh !important;
+    margin-left: 55vw;
+ }
+
+.slDiv{
+  background-color: rgb(53, 56, 57);
+  box-shadow: 0 1rem 3rem black !important;
+  transition: top ease 0.05s;
+  color: white;
+}
+
+.title{
+  position: relative;
+  bottom: 7.5%;
+}
+
+.title2{
+  position: relative;
+  bottom: 7%;
+}
