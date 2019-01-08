@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { FormControl, Validators } from '@angular/forms';
 import * as emailjs from 'emailjs-com';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 declare const $: any;
 
 @Component({
@@ -18,6 +19,12 @@ export class ContactComponent implements OnInit {
   private service_id = 'gmail';
   private template_id = 'contact_form';
   private user_id = 'user_x6XlfsspB7mXunYkCNOjB';
+  matStyles: MatSnackBarConfig = {
+    duration: 2000,
+    verticalPosition: 'bottom'
+  };
+  spinnerHidden = true;
+  selectedValue: any;
 
   reasons: any[] = [
     {r: 'Sociology - Article', value: 'Sociology'},
@@ -30,7 +37,7 @@ export class ContactComponent implements OnInit {
     {r: 'General Inquiry', value: 'General'}
   ];
 
-  constructor() { }
+  constructor(public snackbar: MatSnackBar) { }
 
   ngOnInit() {
 
@@ -55,20 +62,34 @@ export class ContactComponent implements OnInit {
         this.email.hasError('email') ? 'Not a valid email' :
             '';
     }
+
+    if (num === 4) {
+      return this.cReason.hasError('required') ? 'Please select a category' :
+              '';
+      }
+  }
+
+  sendEmail() {
+    $('#cSubmit').prop('disabled', false);
+    $('#landP').css('opacity', '1');
+    this.spinnerHidden = true;
+    $('#myForm').trigger('reset');
+    this.selectedValue = '';
   }
 
   onSubmit() {
+    $('#cSubmit').prop('disabled', true);
+    $('#landP').css('opacity', '0.5');
+    this.spinnerHidden = false;
     emailjs.sendForm(this.service_id, this.template_id, '#myForm', this.user_id)
     .then((response) => {
-      console.log('success', response.status, response.text);
+      this.snackbar.open('Email Sent!', '', this.matStyles);
+      this.sendEmail();
     }, (err) => {
-      console.log('failed', err);
+      this.snackbar.open('Sorry, there seems to be an error. Please try emailing again.', '', this.matStyles);
+      this.sendEmail();
     });
-    // console.log($('#firstName').val());
-    // console.log($('#lastName').val());
-    // console.log($('#emailAddr').val());
-    // console.log($('#catSelect').text());
-    // console.log($('#messageArea').val());
+
   }
 
 }

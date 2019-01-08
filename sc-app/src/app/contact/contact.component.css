@@ -15,3 +15,14 @@
 .inputs{
   width: 80%;
 }
+
+#spinner{
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  z-index: 9999;
+}
+
+#cSubmit{
+  float: right;
+}

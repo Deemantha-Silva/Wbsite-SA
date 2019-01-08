@@ -14,7 +14,9 @@ import {
   MatTableModule,
   MatListModule,
   MatDialogModule,
-  MAT_DIALOG_DATA
+  MAT_DIALOG_DATA,
+  MatSnackBarModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
@@ -64,6 +66,8 @@ import { ContactComponent } from './contact/contact.component';
     NgxPaginationModule,
     MatDialogModule,
     YoutubePlayerModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule,
     RouterModule.forRoot([
       {
         path: '', redirectTo: '/home', pathMatch: 'full'

@@ -1,5 +1,13 @@
 <app-header [title]='title'></app-header>
-<div class='landing'>
+<div class='landing' >
+    <div id='spinner' [hidden]='spinnerHidden'>
+        <mat-progress-spinner
+          class="example-margin"
+          color="primary"
+          mode="indeterminate">
+        </mat-progress-spinner>
+    </div>
+  <div id='landP'>
   <div class="jumbotron contactDiv" style="padding-top: 12px;">
     <h1 class="display-4">Contact Us</h1>
     <hr class="my-4">
@@ -55,13 +63,12 @@
                     <div class="row">
                         <div class='col'>
                             <mat-form-field style="width:200px;">
-                                <mat-select id='catSelect' placeholder="Contact Reason" [formControl]="cReason"  name='cat' required>
-                                  <mat-option>--</mat-option>
+                                <mat-select id='catSelect' placeholder="Contact Reason" [formControl]="cReason" [(ngModel)]='selectedValue' name='cat' required>
                                   <mat-option *ngFor="let r of reasons" [value]="r.value">
                                     {{r.r}}
                                   </mat-option>
                                 </mat-select>
-                                <mat-error *ngIf="cReason.invalid">Please choose a category</mat-error>
+                                <mat-error *ngIf="cReason.invalid">{{getErrorMessage(4)}}</mat-error>
                               </mat-form-field>
                         </div>
                     </div>
@@ -80,9 +87,11 @@
                 </div>
               </div>
               <div>
-                <button [disabled]='cReason.invalid || email.invalid || lname.invalid || fname.invalid' type="submit" mat-raised-button>Submit</button>
+                <button id="cSubmit" [disabled]='cReason.invalid || email.invalid || lname.invalid || fname.invalid' type="submit" mat-raised-button>Submit</button>
               </div>
           </form>
           </div>
   </div>
 </div>
+</div>
+
