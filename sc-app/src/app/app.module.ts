@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
@@ -16,6 +16,7 @@ import {
   MatDialogModule,
   MAT_DIALOG_DATA
 } from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { YoutubePlayerModule } from 'ngx-youtube-player';
@@ -47,11 +48,13 @@ import { ContactComponent } from './contact/contact.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
+    MatSelectModule,
     MatExpansionModule,
     HttpClientModule,
     MatSidenavModule,

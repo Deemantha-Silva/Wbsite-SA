@@ -22,9 +22,67 @@
           <button (click)='email()' style="float:right;">Email</button>
           </div> -->
 
-          <mat-form-field appearance="outline">
-            <mat-label>Name</mat-label>
-            <input matInput placeholder="Ex. Joe Smith">
-          </mat-form-field>
+          <div class="container">
+            <form (ngSubmit)='onSubmit()' id='myForm'>
+              <div class='row'>
+                <div class="col">
+                  <div class="row">
+                      <div class='col'>
+                          <mat-form-field style="width:200px;">
+                              <input id='firstName' matInput placeholder="Enter your First Name" [formControl]="fname" name='first' required>
+                              <mat-error *ngIf="fname.invalid">{{getErrorMessage(1)}}</mat-error>
+                            </mat-form-field>
+                      </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                        <mat-form-field style="width:200px;">
+                            <input id='lastName' matInput placeholder="Enter your Last Name" [formControl]="lname" name='last' required>
+                            <mat-error *ngIf="lname.invalid">{{getErrorMessage(2)}}</mat-error>
+                          </mat-form-field>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col">
+                          <mat-form-field style="width:200px;">
+                              <input id='emailAddr' matInput placeholder="Enter your email" [formControl]="email" name='mail' required>
+                              <mat-error *ngIf="email.invalid">{{getErrorMessage(3)}}</mat-error>
+                            </mat-form-field>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                        <div class='col'>
+                            <mat-form-field style="width:200px;">
+                                <mat-select id='catSelect' placeholder="Contact Reason" [formControl]="cReason"  name='cat' required>
+                                  <mat-option>--</mat-option>
+                                  <mat-option *ngFor="let r of reasons" [value]="r.value">
+                                    {{r.r}}
+                                  </mat-option>
+                                </mat-select>
+                                <mat-error *ngIf="cReason.invalid">Please choose a category</mat-error>
+                              </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <mat-form-field style="width:500px;">
+                        <mat-label>Message</mat-label>
+                        <textarea id='messageArea'
+                                  name='msg'
+                                  matInput
+                                  cdkTextareaAutosize
+                                  cdkAutosizeMinRows="12"
+                                  cdkAutosizeMaxRows="12"
+                                  style="background-color: white;"></textarea>
+                      </mat-form-field>
+                </div>
+              </div>
+              <div>
+                <button [disabled]='cReason.invalid || email.invalid || lname.invalid || fname.invalid' type="submit" mat-raised-button>Submit</button>
+              </div>
+          </form>
+          </div>
   </div>
 </div>
