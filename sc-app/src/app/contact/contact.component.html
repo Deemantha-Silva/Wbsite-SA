@@ -64,6 +64,7 @@
                         <div class='col'>
                             <mat-form-field style="width:200px;">
                                 <mat-select id='catSelect' placeholder="Contact Reason" [formControl]="cReason" [(ngModel)]='selectedValue' name='cat' required>
+                                  <mat-option value=''>--</mat-option>
                                   <mat-option *ngFor="let r of reasons" [value]="r.value">
                                     {{r.r}}
                                   </mat-option>

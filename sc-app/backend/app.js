@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
 const sql = require("mssql");
@@ -15,6 +16,8 @@ app.use((req, res, next) =>{
   res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE, OPTIONS");
   next();
 });
+
+app.use(bodyParser.json());
 
 app.get('/home',(req, res, next) => {
   sql.close();
@@ -145,6 +148,22 @@ app.get('/srilanka/:id',(req, res, next) => {
     request.query(query, (err, recordset) => {
       if(err) console.log(err);
       // console.log(recordset);
+      sql.close();
+      res.send(recordset);
+    });
+  });
+});
+
+app.post('/secure/login',(req, res) => {
+  sql.close();
+  var user = req.body.username;
+  var pass = req.body.password;
+  sql.connect(config, function (err) {
+    if(err) console.log(err);
+    var request = new sql.Request();
+    var query = "SELECT count(id) as success FROM users WHERE username = '" + user + "' and password = '" + pass + "'";
+    request.query(query, (err, recordset) => {
+      if(err) console.log(err);
       sql.close();
       res.send(recordset);
     });

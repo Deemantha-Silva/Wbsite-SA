@@ -33,7 +33,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { DialogArticleComponent } from './dialogs/dialog-article/dialog-article.component';
 import { SrilankaComponent } from './srilanka/srilanka.component';
 import { ContactComponent } from './contact/contact.component';
-
+import { SecureLoginComponent } from './secure-login/secure-login.component';
+import { LoginComponent } from './login/login.component';
+import { DataInputComponent } from './data-input/data-input.component';
+import { AuthGuard } from './guards/auth-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,10 @@ import { ContactComponent } from './contact/contact.component';
     SociologyComponent,
     DialogArticleComponent,
     SrilankaComponent,
-    ContactComponent
+    ContactComponent,
+    SecureLoginComponent,
+    LoginComponent,
+    DataInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,9 +76,6 @@ import { ContactComponent } from './contact/contact.component';
     MatProgressSpinnerModule,
     RouterModule.forRoot([
       {
-        path: '', redirectTo: '/home', pathMatch: 'full'
-      },
-      {
         path: 'home',
         component: HomeComponent
       },
@@ -87,14 +90,30 @@ import { ContactComponent } from './contact/contact.component';
       {
         path: 'contactus',
         component: ContactComponent
+      },
+      {
+        path: 'secure',
+        component: SecureLoginComponent,
+        children: [
+          {path: '', redirectTo: 'login', pathMatch: 'full'},
+          {path: 'login', component: LoginComponent},
+          {path: 'data', component: DataInputComponent, canActivate: [AuthGuard]},
+        ]
+      },
+      {
+        path: '', redirectTo: 'home', pathMatch: 'full'
+      },
+      {
+        path: '**', redirectTo: '/home', pathMatch: 'full'
       }
-    ])
+    ]),
   ],
   entryComponents: [
     DialogArticleComponent
   ],
   providers: [
-    { provide: MAT_DIALOG_DATA, useValue: {} }
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
